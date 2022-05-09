@@ -96,12 +96,12 @@ def open_file(file_path=None):
         file_path = filedialog.askopenfilename()
         if file_path == () or file_path == "":
             return
+        close_file()
         current_file_path = file_path
 
     file_name = os.path.basename(file_path)
-    root.title(f"Notepad - {file_name}")
 
-    close_file()
+    root.title(f"Notepad - {file_name}")
     file = open(file_path, "r")
     contents = file.read()
     edit_area.text.insert(1.0, contents)
